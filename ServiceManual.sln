@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EtteplanMORE.ServiceManual.ApplicationCore", "EtteplanMORE.ServiceManual.ApplicationCore\EtteplanMORE.ServiceManual.ApplicationCore.csproj", "{2AF3329E-36D8-4012-81A7-349ECDB6E878}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EtteplanMORE.ServiceManual.UnitTests", "EtteplanMORE.ServiceManual.UnitTests\EtteplanMORE.ServiceManual.UnitTests.csproj", "{FDAFF491-0036-4B03-BECD-8083096314B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EtteplanMORE.ServiceManual.Web", "EtteplanMORE.ServiceManual.Web\EtteplanMORE.ServiceManual.Web.csproj", "{0B72E2DB-7E27-4E60-8EFC-09C58E2A7443}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2AF3329E-36D8-4012-81A7-349ECDB6E878}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AF3329E-36D8-4012-81A7-349ECDB6E878}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AF3329E-36D8-4012-81A7-349ECDB6E878}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AF3329E-36D8-4012-81A7-349ECDB6E878}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDAFF491-0036-4B03-BECD-8083096314B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDAFF491-0036-4B03-BECD-8083096314B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDAFF491-0036-4B03-BECD-8083096314B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDAFF491-0036-4B03-BECD-8083096314B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B72E2DB-7E27-4E60-8EFC-09C58E2A7443}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B72E2DB-7E27-4E60-8EFC-09C58E2A7443}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B72E2DB-7E27-4E60-8EFC-09C58E2A7443}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B72E2DB-7E27-4E60-8EFC-09C58E2A7443}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
