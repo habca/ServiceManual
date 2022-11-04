@@ -4,6 +4,10 @@
     <ProjectReference Include="..\EtteplanMORE.ServiceManual.ApplicationCore\EtteplanMORE.ServiceManual.ApplicationCore.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MongoDB.Driver" Version="2.18.0" />
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>

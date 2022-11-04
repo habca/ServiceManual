@@ -24,7 +24,7 @@ namespace EtteplanMORE.ServiceManual.UnitTests.ApplicationCore.Services.FactoryD
         public async void ExistingCardWithId()
         {
             IFactoryDeviceService FactoryDeviceService = new FactoryDeviceService();
-            int fdId = 1;
+            string fdId = "1";
 
             var fd = await FactoryDeviceService.Get(fdId);
 
@@ -36,7 +36,7 @@ namespace EtteplanMORE.ServiceManual.UnitTests.ApplicationCore.Services.FactoryD
         public async void NonExistingCardWithId()
         {
             IFactoryDeviceService FactoryDeviceService = new FactoryDeviceService();
-            int fdId = 4;
+            string fdId = "4";
 
             var fd = await FactoryDeviceService.Get(fdId);
 

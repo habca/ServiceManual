@@ -302,3 +302,5 @@ __pycache__/
 # OpenCover UI analysis results
 OpenCover/
 
+## MongoDB
+*.ServiceManual.Database/

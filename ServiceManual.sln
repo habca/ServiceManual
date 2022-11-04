@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EtteplanMORE.ServiceManual.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EtteplanMORE.ServiceManual.UnitTests", "EtteplanMORE.ServiceManual.UnitTests\EtteplanMORE.ServiceManual.UnitTests.csproj", "{FDAFF491-0036-4B03-BECD-8083096314B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EtteplanMORE.ServiceManual.Web", "EtteplanMORE.ServiceManual.Web\EtteplanMORE.ServiceManual.Web.csproj", "{0B72E2DB-7E27-4E60-8EFC-09C58E2A7443}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EtteplanMORE.ServiceManual.Web", "EtteplanMORE.ServiceManual.Web\EtteplanMORE.ServiceManual.Web.csproj", "{AAB2E9D9-27F9-41F7-9E37-4D84DEDD2AEC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,9 +26,9 @@ Global
 		{FDAFF491-0036-4B03-BECD-8083096314B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FDAFF491-0036-4B03-BECD-8083096314B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FDAFF491-0036-4B03-BECD-8083096314B7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0B72E2DB-7E27-4E60-8EFC-09C58E2A7443}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0B72E2DB-7E27-4E60-8EFC-09C58E2A7443}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0B72E2DB-7E27-4E60-8EFC-09C58E2A7443}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0B72E2DB-7E27-4E60-8EFC-09C58E2A7443}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAB2E9D9-27F9-41F7-9E37-4D84DEDD2AEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAB2E9D9-27F9-41F7-9E37-4D84DEDD2AEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAB2E9D9-27F9-41F7-9E37-4D84DEDD2AEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAB2E9D9-27F9-41F7-9E37-4D84DEDD2AEC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

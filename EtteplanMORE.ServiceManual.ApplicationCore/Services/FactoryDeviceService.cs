@@ -17,21 +17,21 @@ namespace EtteplanMORE.ServiceManual.ApplicationCore.Services
         {
             new FactoryDevice
             {
-                Id = 1,
+                Id = "1",
                 Name = "Device X",
                 Year = 2001,
                 Type = "Type 10"
             },
             new FactoryDevice
             {
-                Id = 2,
+                Id = "2",
                 Name = "Device Y",
                 Year = 2012,
                 Type = "Type 3"
             },
             new FactoryDevice
             {
-                Id = 3,
+                Id = "3",
                 Name = "Device Z",
                 Year = 1985,
                 Type = "Type 1"
@@ -43,7 +43,7 @@ namespace EtteplanMORE.ServiceManual.ApplicationCore.Services
             return await Task.FromResult(TemporaryDevices);
         }
 
-        public async Task<FactoryDevice> Get(int id)
+        public async Task<FactoryDevice> Get(string id)
         {
             return await Task.FromResult(TemporaryDevices.FirstOrDefault(c => c.Id == id));
         }

@@ -9,6 +9,6 @@ namespace EtteplanMORE.ServiceManual.ApplicationCore.Interfaces
     {
         Task<IEnumerable<FactoryDevice>> GetAll();
 
-        Task<FactoryDevice> Get(int id);
+        Task<FactoryDevice> Get(string id);
     }
 }

@@ -40,7 +40,7 @@ namespace EtteplanMORE.ServiceManual.Web.Controllers
         ///     HTTP GET: api/factorydevices/1
         /// </summary>
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(int id)
+        public async Task<IActionResult> Get(string id)
         {
             var fd = await _factoryDeviceService.Get(id);
             if (fd == null)
