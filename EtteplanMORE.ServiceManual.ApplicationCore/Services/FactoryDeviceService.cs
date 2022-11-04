@@ -5,11 +5,23 @@ using System.Linq;
 using System.Threading.Tasks;
 using EtteplanMORE.ServiceManual.ApplicationCore.Entities;
 using EtteplanMORE.ServiceManual.ApplicationCore.Interfaces;
+using MongoDB.Driver;
 
 namespace EtteplanMORE.ServiceManual.ApplicationCore.Services
 {
     public class FactoryDeviceService : IFactoryDeviceService
     {
+        private readonly IMongoCollection<FactoryDevice> _factoryDevicesCollection;
+
+        public FactoryDeviceService()
+        {
+            var mongoClient = new MongoClient("mongodb://localhost:27017");
+
+            var mongoDatabase = mongoClient.GetDatabase("ServiceManual");
+
+            _factoryDevicesCollection = mongoDatabase.GetCollection<FactoryDevice>("FactoryDevices");
+        }
+
         /// <summary>
         ///     Remove this. Temporary device storage before proper data storage is implemented.
         /// </summary>
@@ -47,5 +59,8 @@ namespace EtteplanMORE.ServiceManual.ApplicationCore.Services
         {
             return await Task.FromResult(TemporaryDevices.FirstOrDefault(c => c.Id == id));
         }
+
+        public async Task<List<FactoryDevice>> GetAsync() =>
+            await _factoryDevicesCollection.Find(_ => true).ToListAsync();
     }
 }

@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EtteplanMORE.ServiceManual.Web.Controllers
 {
+    [ApiController]
     [Route("api/[controller]")]
     public class FactoryDevicesController : Controller
     {
@@ -17,6 +18,10 @@ namespace EtteplanMORE.ServiceManual.Web.Controllers
         {
             _factoryDeviceService = factoryDeviceService;
         }
+
+        [HttpGet("test")]
+        public async Task<List<FactoryDevice>> GetAsync() =>
+            await _factoryDeviceService.GetAsync();
 
         /// <summary>
         ///     HTTP GET: api/factorydevices/
