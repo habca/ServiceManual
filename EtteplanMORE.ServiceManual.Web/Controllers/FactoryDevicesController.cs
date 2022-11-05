@@ -19,10 +19,6 @@ namespace EtteplanMORE.ServiceManual.Web.Controllers
             _factoryDeviceService = factoryDeviceService;
         }
 
-        [HttpGet("test")]
-        public async Task<List<FactoryDevice>> GetAsync() =>
-            await _factoryDeviceService.GetAsync();
-
         /// <summary>
         ///     HTTP GET: api/factorydevices/
         /// </summary>

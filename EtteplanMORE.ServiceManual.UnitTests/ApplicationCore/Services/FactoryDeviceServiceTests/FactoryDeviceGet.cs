@@ -17,14 +17,14 @@ namespace EtteplanMORE.ServiceManual.UnitTests.ApplicationCore.Services.FactoryD
 
             Assert.NotNull(fds);
             Assert.NotEmpty(fds);
-            Assert.Equal(3, fds.Count);
+            Assert.Equal(2, fds.Count);
         }
 
         [Fact]
         public async void ExistingCardWithId()
         {
             IFactoryDeviceService FactoryDeviceService = new FactoryDeviceService();
-            string fdId = "1";
+            string fdId = "6365789260e5e1bc2eaddc66";
 
             var fd = await FactoryDeviceService.Get(fdId);
 
@@ -36,7 +36,7 @@ namespace EtteplanMORE.ServiceManual.UnitTests.ApplicationCore.Services.FactoryD
         public async void NonExistingCardWithId()
         {
             IFactoryDeviceService FactoryDeviceService = new FactoryDeviceService();
-            string fdId = "4";
+            string fdId = "6365789260e5e1bc2eaddc68";
 
             var fd = await FactoryDeviceService.Get(fdId);
 

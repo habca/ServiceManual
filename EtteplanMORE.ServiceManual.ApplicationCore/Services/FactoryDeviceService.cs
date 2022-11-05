@@ -22,45 +22,14 @@ namespace EtteplanMORE.ServiceManual.ApplicationCore.Services
             _factoryDevicesCollection = mongoDatabase.GetCollection<FactoryDevice>("FactoryDevices");
         }
 
-        /// <summary>
-        ///     Remove this. Temporary device storage before proper data storage is implemented.
-        /// </summary>
-        private static readonly ImmutableList<FactoryDevice> TemporaryDevices = new List<FactoryDevice>
-        {
-            new FactoryDevice
-            {
-                Id = "1",
-                Name = "Device X",
-                Year = 2001,
-                Type = "Type 10"
-            },
-            new FactoryDevice
-            {
-                Id = "2",
-                Name = "Device Y",
-                Year = 2012,
-                Type = "Type 3"
-            },
-            new FactoryDevice
-            {
-                Id = "3",
-                Name = "Device Z",
-                Year = 1985,
-                Type = "Type 1"
-            }
-        }.ToImmutableList();
-
         public async Task<IEnumerable<FactoryDevice>> GetAll()
         {
-            return await Task.FromResult(TemporaryDevices);
+            return await _factoryDevicesCollection.Find(_ => true).ToListAsync();
         }
 
         public async Task<FactoryDevice> Get(string id)
         {
-            return await Task.FromResult(TemporaryDevices.FirstOrDefault(c => c.Id == id));
+            return await _factoryDevicesCollection.Find(c => c.Id == id).FirstOrDefaultAsync();
         }
-
-        public async Task<List<FactoryDevice>> GetAsync() =>
-            await _factoryDevicesCollection.Find(_ => true).ToListAsync();
     }
 }
