@@ -23,9 +23,9 @@ namespace EtteplanMORE.ServiceManual.Web.Controllers
         ///     HTTP GET: api/factorydevices/
         /// </summary>
         [HttpGet]
-        public async Task<IEnumerable<FactoryDeviceDto>> Get()
+        public async Task<IActionResult> Get()
         {
-            return (await _factoryDeviceService.GetAll())
+            return Ok((await _factoryDeviceService.GetAll())
                 .Select(fd =>
                     new FactoryDeviceDto
                     {
@@ -34,7 +34,7 @@ namespace EtteplanMORE.ServiceManual.Web.Controllers
                         Year = fd.Year,
                         Type = fd.Type
                     }
-                );
+                ));
         }
 
         /// <summary>
@@ -56,6 +56,74 @@ namespace EtteplanMORE.ServiceManual.Web.Controllers
                 Year = fd.Year,
                 Type = fd.Type
             });
+        }
+
+        /// <summary>
+        ///     HTTP POST: api/factorydevices/
+        /// </summary> 
+        [HttpPost]
+        public async Task<ActionResult> Post(FactoryDeviceDto dto)
+        {
+            var fd = await _factoryDeviceService.Get(dto.Id);
+            if (fd != null)
+            {
+                return BadRequest();
+            }
+
+            fd = await _factoryDeviceService.Post(new FactoryDevice
+            {
+                Name = dto.Name,
+                Year = dto.Year,
+                Type = dto.Type
+            });
+
+            return CreatedAtAction(
+                nameof(Get),
+                new { id = fd.Id },
+                new FactoryDeviceDto
+                {
+                    Id = fd.Id,
+                    Name = fd.Name,
+                    Year = fd.Year,
+                    Type = fd.Type
+                }
+            );
+        }
+
+        /// <summary>
+        ///     HTTP PUT: api/factorydevices/
+        /// </summary>
+        [HttpPut]
+        public async Task<IActionResult> Put(FactoryDeviceDto dto)
+        {
+            var fd = await _factoryDeviceService.Get(dto.Id);
+            if (fd == null)
+            {
+                return NotFound();
+            }
+
+            fd.Name = dto.Name;
+            fd.Type = dto.Type;
+            fd.Year = dto.Year;
+
+            await _factoryDeviceService.Put(fd);
+            return NoContent();
+        }
+
+        /// <summary>
+        ///     HTTP DELETE: api/factorydevices/
+        /// </summary>
+        [HttpDelete]
+        public async Task<IActionResult> Delete(FactoryDeviceDto dto)
+        {
+            var fd = await _factoryDeviceService.Get(dto.Id);
+            if (fd == null)
+            {
+                return NotFound();
+            }
+
+            await _factoryDeviceService.Delete(fd);
+            return NoContent();
         }
     }
 }
