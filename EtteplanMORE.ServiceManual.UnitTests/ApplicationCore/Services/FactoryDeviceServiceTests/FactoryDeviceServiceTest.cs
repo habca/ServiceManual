@@ -12,7 +12,7 @@ namespace EtteplanMORE.ServiceManual.UnitTests.ApplicationCore.Services.FactoryD
 {
     public class FactoryDeviceServiceTest
     {
-        private IFactoryDeviceService<FactoryDevice> factoryDeviceService;
+        private IFactoryDeviceService<FactoryDevice, string> factoryDeviceService;
 
         public FactoryDeviceServiceTest()
         {
@@ -39,7 +39,7 @@ namespace EtteplanMORE.ServiceManual.UnitTests.ApplicationCore.Services.FactoryD
         }
 
         [Fact]
-        public async void MongoNotFound()
+        public async void MongoGetNotFound()
         {
             const string fdId = "6365789260e5e1bc2eaddc68";
             var fd = await factoryDeviceService.Get(fdId);

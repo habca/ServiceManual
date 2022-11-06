@@ -6,8 +6,8 @@ using EtteplanMORE.ServiceManual.ApplicationCore.Services;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddScoped<IFactoryDeviceService<FactoryDevice>, FactoryDeviceService>();
-builder.Services.AddScoped<IFactoryDeviceService<Maintenance>, MaintenanceService>();
+builder.Services.AddScoped<IFactoryDeviceService<FactoryDevice, string>, FactoryDeviceService>();
+builder.Services.AddScoped<IFactoryDeviceService<Maintenance, string>, MaintenanceService>();
 
 builder.Services.AddSingleton<FactoryDeviceService>();
 builder.Services.AddSingleton<MaintenanceService>();

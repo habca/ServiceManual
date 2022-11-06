@@ -2,8 +2,8 @@ using System;
 
 namespace EtteplanMORE.ServiceManual.ApplicationCore.Interfaces
 {
-    public interface IEntity
+    public interface IEntity<T>
     {
-        public string? Id { get; set; }
+        public T? Id { get; set; }
     }
 }

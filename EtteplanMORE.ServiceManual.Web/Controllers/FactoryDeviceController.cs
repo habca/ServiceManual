@@ -7,9 +7,9 @@ namespace EtteplanMORE.ServiceManual.Web.Controllers
 {
     [ApiController]
     [Route("api/factorydevices")]
-    public class FactoryDeviceController : GenericCrudController<FactoryDevice>
+    public class FactoryDeviceController : GenericCrudController<FactoryDevice, string>
     {
-        public FactoryDeviceController(IFactoryDeviceService<FactoryDevice> factoryDeviceService) : base(factoryDeviceService)
+        public FactoryDeviceController(IFactoryDeviceService<FactoryDevice, string> factoryDeviceService) : base(factoryDeviceService)
         {
         }
     }

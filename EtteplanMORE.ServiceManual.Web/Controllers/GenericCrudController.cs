@@ -4,11 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EtteplanMORE.ServiceManual.Web.Controllers
 {
-    public class GenericCrudController<T> : ControllerBase where T : IEntity
+    public class GenericCrudController<T, S> : ControllerBase where T : IEntity<S>
     {
-        protected readonly IFactoryDeviceService<T> _service;
+        protected readonly IFactoryDeviceService<T, S> _service;
 
-        public GenericCrudController(IFactoryDeviceService<T> service)
+        public GenericCrudController(IFactoryDeviceService<T, S> service)
         {
             _service = service;
         }
@@ -17,17 +17,22 @@ namespace EtteplanMORE.ServiceManual.Web.Controllers
         ///     HTTP GET: api/{controller}/
         /// </summary>
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public virtual async Task<IActionResult> Get()
         {
-            return Ok((await _service.GetAll()));
+            return Ok(await _service.GetAll());
         }
 
         /// <summary>
         ///     HTTP GET: api/{controller}/{id}
         /// </summary>
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(string id)
+        public virtual async Task<IActionResult> Get(S id)
         {
+            if (id == null)
+            {
+                return BadRequest();
+            }
+
             var obj = await _service.Get(id);
             if (obj == null)
             {
@@ -41,10 +46,9 @@ namespace EtteplanMORE.ServiceManual.Web.Controllers
         ///     HTTP POST: api/{controller}/
         /// </summary> 
         [HttpPost]
-        public async Task<ActionResult> Post(T obj)
+        public virtual async Task<ActionResult> Post(T obj)
         {
-            var found = await _service.Get(obj.Id);
-            if (found != null)
+            if (obj == null || obj.Id != null)
             {
                 return BadRequest();
             }
@@ -58,8 +62,13 @@ namespace EtteplanMORE.ServiceManual.Web.Controllers
         ///     HTTP PUT: api/{controller}/
         /// </summary>
         [HttpPut]
-        public async Task<IActionResult> Put(T obj)
+        public virtual async Task<IActionResult> Put(T obj)
         {
+            if (obj == null || obj.Id == null)
+            {
+                return BadRequest();
+            }
+
             var fd = await _service.Get(obj.Id);
             if (fd == null)
             {
@@ -74,8 +83,13 @@ namespace EtteplanMORE.ServiceManual.Web.Controllers
         ///     HTTP DELETE: api/{controller}/
         /// </summary>
         [HttpDelete]
-        public async Task<IActionResult> Delete(T obj)
+        public virtual async Task<IActionResult> Delete(T obj)
         {
+            if (obj == null || obj.Id == null)
+            {
+                return BadRequest();
+            }
+
             var found = await _service.Get(obj.Id);
             if (found == null)
             {

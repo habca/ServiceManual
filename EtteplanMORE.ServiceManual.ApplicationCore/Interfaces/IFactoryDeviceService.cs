@@ -2,16 +2,16 @@ using System;
 
 namespace EtteplanMORE.ServiceManual.ApplicationCore.Interfaces
 {
-    public interface IFactoryDeviceService<T> where T : IEntity
+    public interface IFactoryDeviceService<T, S> where T : IEntity<S>
     {
         Task<IEnumerable<T>> GetAll();
 
-        Task<T> Get(string? id);
+        Task<T> Get(S? id);
 
-        Task<T> Post(T factoryDevice);
+        Task<T> Post(T obj);
 
-        Task Put(T factoryDevice);
+        Task Put(T obj);
 
-        Task Delete(T factoryDevice);
+        Task Delete(T obj);
     }
 }

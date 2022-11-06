@@ -4,7 +4,7 @@ using EtteplanMORE.ServiceManual.ApplicationCore.Interfaces;
 
 namespace EtteplanMORE.ServiceManual.ApplicationCore.Entities
 {
-    public abstract class MongoEntity : IEntity
+    public abstract class MongoEntity : IEntity<string>
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
