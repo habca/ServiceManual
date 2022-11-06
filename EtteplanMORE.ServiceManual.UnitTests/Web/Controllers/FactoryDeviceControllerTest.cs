@@ -11,12 +11,12 @@ namespace EtteplanMORE.ServiceManual.UnitTests.ApplicationCore.Services.FactoryD
 
 public class FactoryDevicesControllerTest
 {
-    private readonly FactoryDevicesController controller;
+    private readonly FactoryDeviceController controller;
 
     public FactoryDevicesControllerTest()
     {
         var service = new FactoryDeviceService();
-        controller = new FactoryDevicesController(service);
+        controller = new FactoryDeviceController(service);
     }
 
     [Fact]
@@ -28,7 +28,7 @@ public class FactoryDevicesControllerTest
         Assert.NotNull(response);
         Assert.NotNull(response?.Value);
 
-        var content = response?.Value as FactoryDeviceDto;
+        var content = response?.Value as FactoryDevice;
 
         Assert.Equal(200, response?.StatusCode);
         Assert.Equal(fdId, content?.Id);
@@ -42,7 +42,7 @@ public class FactoryDevicesControllerTest
         Assert.NotNull(response);
         Assert.NotNull(response?.Value);
 
-        var content = response?.Value as IEnumerable<FactoryDeviceDto>;
+        var content = response?.Value as IEnumerable<FactoryDevice>;
 
         Assert.Equal(200, response?.StatusCode);
         Assert.NotEmpty(content?.ToArray());
@@ -60,7 +60,7 @@ public class FactoryDevicesControllerTest
     [Fact]
     public async void HttpPostAndDelete()
     {
-        var dto = new FactoryDeviceDto
+        var dto = new FactoryDevice
         {
             Name = "Device 2022",
             Year = 2022,
@@ -72,17 +72,10 @@ public class FactoryDevicesControllerTest
         Assert.NotNull(response);
         Assert.NotNull(response?.Value);
 
-        var content = response?.Value as FactoryDeviceDto;
+        var content = response?.Value as FactoryDevice;
 
         Assert.Equal(201, response?.StatusCode);
         Assert.Equal("Get", response?.ActionName);
-
-        dto.Id = content?.Id;
-
-        Assert.Equal(dto.Id, content?.Id);
-        Assert.Equal(dto.Name, content?.Name);
-        Assert.Equal(dto.Year, content?.Year);
-        Assert.Equal(dto.Type, content?.Type);
 
         var noresponse = await controller.Delete(dto) as NoContentResult;
 
@@ -96,7 +89,7 @@ public class FactoryDevicesControllerTest
         string fdId = "6365789260e5e1bc2eaddc67";
 
         var response = await controller.Get(fdId) as OkObjectResult;
-        var content = response?.Value as FactoryDeviceDto;
+        var content = response?.Value as FactoryDevice;
 
         Assert.NotNull(response);
         Assert.NotNull(content);
@@ -111,7 +104,7 @@ public class FactoryDevicesControllerTest
     public async void HttpPutNotFound()
     {
         string fdId = "6365789260e5e1bc2eaddc68";
-        var dto = new FactoryDeviceDto
+        var dto = new FactoryDevice
         {
             Id = fdId,
             Name = "Device 1",

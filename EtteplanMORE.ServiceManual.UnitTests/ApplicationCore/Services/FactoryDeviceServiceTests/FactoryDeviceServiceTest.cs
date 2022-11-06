@@ -12,7 +12,7 @@ namespace EtteplanMORE.ServiceManual.UnitTests.ApplicationCore.Services.FactoryD
 {
     public class FactoryDeviceServiceTest
     {
-        private IFactoryDeviceService factoryDeviceService;
+        private IFactoryDeviceService<FactoryDevice> factoryDeviceService;
 
         public FactoryDeviceServiceTest()
         {
@@ -20,7 +20,7 @@ namespace EtteplanMORE.ServiceManual.UnitTests.ApplicationCore.Services.FactoryD
         }
 
         [Fact]
-        public async void MongoDbGetAll()
+        public async void MongoGetAll()
         {
             var fds = await factoryDeviceService.GetAll();
 
@@ -29,7 +29,7 @@ namespace EtteplanMORE.ServiceManual.UnitTests.ApplicationCore.Services.FactoryD
         }
 
         [Fact]
-        public async void MongoDbGet()
+        public async void MongoGet()
         {
             const string fdId = "6365789260e5e1bc2eaddc66";
             var fd = await factoryDeviceService.Get(fdId);
@@ -39,7 +39,7 @@ namespace EtteplanMORE.ServiceManual.UnitTests.ApplicationCore.Services.FactoryD
         }
 
         [Fact]
-        public async void MongoDbNotFound()
+        public async void MongoNotFound()
         {
             const string fdId = "6365789260e5e1bc2eaddc68";
             var fd = await factoryDeviceService.Get(fdId);
@@ -48,7 +48,7 @@ namespace EtteplanMORE.ServiceManual.UnitTests.ApplicationCore.Services.FactoryD
         }
 
         [Fact]
-        public async void MongoDbPostAndDelete()
+        public async void MongoPostAndDelete()
         {
             int expected = (await factoryDeviceService.GetAll()).Count();
             var fd = await factoryDeviceService.Post(new FactoryDevice
@@ -69,7 +69,7 @@ namespace EtteplanMORE.ServiceManual.UnitTests.ApplicationCore.Services.FactoryD
         }
 
         [Fact]
-        public async void MongoDbPut()
+        public async void MongoPut()
         {
             const string fdId = "6365789260e5e1bc2eaddc67";
             var fd = await factoryDeviceService.Get(fdId);

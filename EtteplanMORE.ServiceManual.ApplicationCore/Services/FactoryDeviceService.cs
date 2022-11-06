@@ -1,15 +1,11 @@
 using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.Linq;
-using System.Threading.Tasks;
 using EtteplanMORE.ServiceManual.ApplicationCore.Entities;
 using EtteplanMORE.ServiceManual.ApplicationCore.Interfaces;
 using MongoDB.Driver;
 
 namespace EtteplanMORE.ServiceManual.ApplicationCore.Services
 {
-    public class FactoryDeviceService : IFactoryDeviceService
+    public class FactoryDeviceService : IFactoryDeviceService<FactoryDevice>
     {
         private readonly IMongoCollection<FactoryDevice> _factoryDevicesCollection;
 

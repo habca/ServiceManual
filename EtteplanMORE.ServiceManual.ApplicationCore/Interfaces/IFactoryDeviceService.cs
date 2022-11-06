@@ -1,20 +1,17 @@
 using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using EtteplanMORE.ServiceManual.ApplicationCore.Entities;
 
 namespace EtteplanMORE.ServiceManual.ApplicationCore.Interfaces
 {
-    public interface IFactoryDeviceService
+    public interface IFactoryDeviceService<T> where T : IEntity
     {
-        Task<IEnumerable<FactoryDevice>> GetAll();
+        Task<IEnumerable<T>> GetAll();
 
-        Task<FactoryDevice> Get(string? id);
+        Task<T> Get(string? id);
 
-        Task<FactoryDevice> Post(FactoryDevice factoryDevice);
+        Task<T> Post(T factoryDevice);
 
-        Task Put(FactoryDevice factoryDevice);
+        Task Put(T factoryDevice);
 
-        Task Delete(FactoryDevice factoryDevice);
+        Task Delete(T factoryDevice);
     }
 }
