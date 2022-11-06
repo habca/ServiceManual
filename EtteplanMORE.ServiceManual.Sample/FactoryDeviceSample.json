@@ -1,0 +1,20 @@
+[
+    {
+        "Id": "6365789260e5e1bc2eaddc66",
+        "Name": "Device X",
+        "Year": 2001,
+        "Type": "Type 10"
+    },
+    {
+        "Id": "6365789260e5e1bc2eaddc67",
+        "Name": "Device Y",
+        "Year": 2012,
+        "Type": "Type 3"
+    },
+    {
+        "Id": "6365789260e5e1bc2eaddc68",
+        "Name": "Device Z",
+        "Year": 1985,
+        "Type": "Type 1"
+    }
+]

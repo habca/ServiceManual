@@ -1,0 +1,16 @@
+[
+    {
+        "Id": "6367adbc9ae609a9ad57c1f7",
+        "FactoryDevice": "6365789260e5e1bc2eaddc66",
+        "Criticality": 2,
+        "Status": 1,
+        "Description": "Needs an oil change."
+      },
+      {
+        "Id": "6367adcc9ae609a9ad57c1f8",
+        "FactoryDevice": "6365789260e5e1bc2eaddc67",
+        "Criticality": 1,
+        "Status": 0,
+        "Description": "Keep up the good work."
+      }
+]
