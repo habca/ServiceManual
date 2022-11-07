@@ -45,12 +45,19 @@ dotnet test
 dotnet run --project EtteplanMORE.ServiceManual.Web
 ```
 
-## Open browser
+## Try out on browser
 
 Check the port number from the terminal.
 
 ```
-https://localhost:<port>/api/factorydevices/
-https://localhost:<port>/api/maintenances/
-https://localhost:<port>/api/maintenances/6367adbc9ae609a9ad57c1f7
+localhost:<port>/api/factorydevices
+localhost:<port>/api/maintenances
+localhost:<port>/api/maintenances/6367adbc9ae609a9ad57c1f7
+```
+
+## See documentation
+
+```
+localhost:<port>/swagger
+localhost:<port>/swagger/v1/swagger.json
 ```

@@ -13,6 +13,12 @@ namespace EtteplanMORE.ServiceManual.Web.Controllers
         {
         }
 
+        /// <summary>
+        /// Every maintenance task sorted first by criticality and then by date of record.
+        /// </summary>
+        /// <remarks>The result may not have any record at all.</remarks>
+        /// <returns>All entries from the database in an array.</returns>
+        [HttpGet]
         public override async Task<IActionResult> Get()
         {
             IEnumerable<Maintenance> array = await _service.GetAll();
@@ -21,6 +27,11 @@ namespace EtteplanMORE.ServiceManual.Web.Controllers
             return Ok(array);
         }
 
+        /// <summary>
+        /// Those maintenance tasks that affect the factory devices to be repaired.
+        /// </summary>
+        /// <param name="fdId">The factory device being repaired.</param>
+        /// <returns>Maintenance tasks associated to the same factory device to be repaired.</returns>
         [HttpGet("filter/{fdId}")]
         public async Task<IActionResult> Filter(string fdId)
         {

@@ -14,8 +14,10 @@ namespace EtteplanMORE.ServiceManual.Web.Controllers
         }
 
         /// <summary>
-        ///     HTTP GET: api/{controller}/
+        /// Every equipment in the factory that are subject to maintenance.
         /// </summary>
+        /// <remarks>The result may not have any record at all.</remarks>
+        /// <returns>All entries from the database in an array.</returns>
         [HttpGet]
         public virtual async Task<IActionResult> Get()
         {
@@ -23,8 +25,11 @@ namespace EtteplanMORE.ServiceManual.Web.Controllers
         }
 
         /// <summary>
-        ///     HTTP GET: api/{controller}/{id}
+        /// A single equipment that matches the unique id.
         /// </summary>
+        /// <remarks>A situation where the id is empty should not be possible.</remarks>
+        /// <param name="id">Identifies the factory device.</param>
+        /// <returns>A single entry from the database when the id matches.</returns>
         [HttpGet("{id}")]
         public virtual async Task<IActionResult> Get(S id)
         {
@@ -43,8 +48,11 @@ namespace EtteplanMORE.ServiceManual.Web.Controllers
         }
 
         /// <summary>
-        ///     HTTP POST: api/{controller}/
-        /// </summary> 
+        /// To record maintenance task of a factory equipment.
+        /// </summary>
+        /// <remarks>The id must be empty, as it will be assigned by the database.</remarks>
+        /// <param name="obj">The maintenance task to be recorded.</param>
+        /// <returns>Record of a newly added maintenance task.</returns>
         [HttpPost]
         public virtual async Task<ActionResult> Post(T obj)
         {
@@ -59,8 +67,11 @@ namespace EtteplanMORE.ServiceManual.Web.Controllers
         }
 
         /// <summary>
-        ///     HTTP PUT: api/{controller}/
+        /// Update a previously added maintenance task.
         /// </summary>
+        /// <remarks>The id should not be empty.</remarks>
+        /// <param name="obj">The maintenance task to be updated.</param>
+        /// <returns>Succeeds silently and returns nothing.</returns>
         [HttpPut]
         public virtual async Task<IActionResult> Put(T obj)
         {
@@ -80,8 +91,13 @@ namespace EtteplanMORE.ServiceManual.Web.Controllers
         }
 
         /// <summary>
-        ///     HTTP DELETE: api/{controller}/
+        /// Remove a maintenance task that will never be carried out.
         /// </summary>
+        /// <remarks>
+        /// Removing an equipment does not remove the associated maintenance tasks.
+        /// </remarks>
+        /// <param name="obj">The maintenance task to be removed.</param>
+        /// <returns>Succeeds silently and returns nothing.</returns>
         [HttpDelete]
         public virtual async Task<IActionResult> Delete(T obj)
         {
